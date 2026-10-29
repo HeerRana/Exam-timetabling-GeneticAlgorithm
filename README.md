@@ -56,6 +56,39 @@ $$\text{Fitness} = - \Big( 100 \times (\text{Student Clashes} + \text{Room Clash
 
 ---
 
+### 5. How does the Genetic Algorithm improve the timetable?
+The algorithm uses four key operations.
+
+- **Step 1** — Initialize the population
+
+Generate 48 candidate timetables. Initially, many may contain student clashes, room clashes, or capacity violations.
+
+
+
+- **Step 2** — Evaluate and select
+
+Calculate each timetable's fitness, then use tournament selection with \(k=3\): compare three candidates and select a better one as a parent.
+
+
+
+- **Step 3** — Crossover
+
+With crossover probability \(P_c=0.85\), combine portions of two parent chromosomes to create offspring. The project uses single-point crossover.
+
+
+
+- **Step 4** — Mutation and elitism
+
+Randomly change genes with mutation probability \(P_m=0.12\). Preserve the two best individuals unchanged in the next generation.
+
+
+
+- **Step 5** — Repeat
+
+Evaluate the new population and repeat for up to 80 generations, aiming for a feasible timetable with a low soft penalty.
+
+---
+
 ## 📊 Experimental Results & Benchmark
 
 The genetic algorithm was benchmarked against baseline strategies across identical problem instances (10 exams, 48 students, 6 slots across 3 days, 3 rooms with capacities of 32, 24, and 18):
